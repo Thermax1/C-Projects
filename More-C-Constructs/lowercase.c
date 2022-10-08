@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <ctype.h>
 
 int main(void) {
 	char u[50] = "HELLOWORLD,CS604 STUDENTS!";
@@ -8,6 +9,13 @@ int main(void) {
 	
 	/**your code here**/
 
+	for (int i = 0; i < sizeof(u); i++)
+	{
+		if(isalpha(u[i])) {
+			u[i] = u[i] + 32;
+		}
+	}
+	
 	//DO NOT modify the following printf, it is supposed to print out helloworld,cs604 students!
 	printf("%s\n",u);
 	return 0;

@@ -3,7 +3,7 @@
 int main(void) {
 
 	int input;
-	printf ("please enter a number greater than 5 and less than 10\n");
+	printf ("please enter a number greater than 5 and less than 10: ");
 	scanf("%d", &input);
 
 	//TODO: Read the comments and complete the "TODO" instruction in line 15 to 
@@ -13,7 +13,7 @@ int main(void) {
 	//be stuck in the loop and continue to ask for inputs.
 	//Do NOT modify any other code. Change ONLY line 15
 
-	while(???) { //TODO: please replace ??? with a compound conditional expression
+	while(input < 6 || input > 9) { //TODO: please replace ??? with a compound conditional expression
 		printf ("invalid number\n");
 		printf ("please enter a number greater than 5 and less than 10\n");
 		scanf("%d", &input);
