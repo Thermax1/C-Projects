@@ -26,11 +26,7 @@ int main(void) {
 		converted[i + 1] = converted[i];
 	}
 	converted[7] = '-';
-
-	for(int i =1;i < sizeof(original);i++) {
-
-	  converted[i] = original [i];
-  }
+	
 	//DO NOT modify the code below
        	printf("%s\n", converted);	
 }

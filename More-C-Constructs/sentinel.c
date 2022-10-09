@@ -6,7 +6,7 @@ int main(void) {
 	int grades[20]; //we declare an array of 20 grades because the question assumes the capacity of the class is 20
 	int i = 0; //i can represent how many grades are stored in array.
 
-	printf("Enter a grade:\n");
+	printf("Enter a grade or enter -1 to exit:\n");
 	scanf("%d", &t);
 
 	//TODO: The purpose of this program is to find the average of students' grades.  Read the comments and follow the step-by-step "TODO" instructions below.
@@ -53,7 +53,8 @@ int main(void) {
 
 
 	//DO NOT change the following printf
+	if( i > 0){
 	printf("the average grade of the class is %.2f", average);
-
+	}
 	return 0;
 }
