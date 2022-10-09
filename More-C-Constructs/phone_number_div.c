@@ -15,7 +15,17 @@ int main(void) {
 	//The output must be stored in the array converted (already declared in line 8).
 	//You MUST use a loop to copy characters over
 
-	/**your code here**/
+	for(int i = 0; i < sizeof(original);i++) {
+		converted[i] = original[i];
+	}
+	for(int i = 10; i >= 3;i--){
+		converted[i + 1] = converted[i];
+	}
+	converted[3] = '-';
+	for(int i = 11; i >= 7;i--){
+		converted[i + 1] = converted[i];
+	}
+	converted[7] = '-';
 
 	//DO NOT modify the code below
        	printf("%s\n", converted);	

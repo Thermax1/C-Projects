@@ -12,7 +12,29 @@ int main(void) {
 	//The output must be stored in array converted (already declared in line 7)
 	//You MUST use a loop to copy characters over
 
-	/**your code here**/
+	for(int i = 0; i < sizeof(original);i++) {
+		converted[i] = original[i];
+		}
+	for(int i = 7; i >= 0;i--){
+		converted[i + 1] = converted[i];
+	}
+	converted[0] = ')';
+	for(int i = 8; i >= 0;i--){
+		converted[i + 1] = converted[i];
+	}
+	converted[0] = '6';
+	for(int i = 9; i >= 0;i--){
+		converted[i + 1] = converted[i];
+	}
+	converted[0] = '1';
+	for(int i = 10; i >= 0;i--){
+		converted[i + 1] = converted[i];
+	}
+	converted[0] = '5';
+	for(int i =11; i >= 0;i--){
+		converted[i + 1] = converted[i];
+	}
+	converted[0] = '(';
 
 	//DO NOT modify the code below
        	printf("%s\n", converted);	

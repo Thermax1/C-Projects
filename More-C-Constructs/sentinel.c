@@ -14,12 +14,17 @@ int main(void) {
 	//some students could be absent. We will keep on accepting grades until we see an
 	//input of -1. Grades can't be negative, and we are using -1 as a sentinel to end the input.
 	
-	while(???){ // TODO: replace ??? with condition to check if it is -1
+	while(t != -1){ // TODO: replace ??? with condition to check if it is -1
 			//(now we know it is not -1, because we are in the loop)
 		//TODO: Now add the grade t to the grades array, and increase index i by 1.
 		/**your code here**/
 
+		grades[i] = t;
+		i++;
 		//TODO: Read a new grade and store in t, why? because we have already processed what is in t
+		printf("Enter a grade or enter -1 to exit:\n");
+		scanf("%d", &t);
+	
 			//We are ready to process next grade, we will repeat read->check->process
 			//                                                     ^             |	
 			//                                                     |_____________|
@@ -33,6 +38,14 @@ int main(void) {
 	
 	float average; //DO NOT modify this declaration
 
+	float sum = 0;
+	for(int x = 0; x < i; x++) {
+		sum = sum + grades[x];
+
+		if(x == (i - 1)) {
+			average = sum / i;
+		}
+	}
 	//TODO: Now write a loop to find the average of the class grades.
 		//Make sure the result is stored in the float average declared as above (in line 34)
 
