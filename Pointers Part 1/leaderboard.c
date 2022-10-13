@@ -12,19 +12,53 @@ void printThreeLeaders(struct stud studs[], int count) { //why is count here? C 
 	//Please do not modify the content of studs array
 	struct stud first, second, third;
 
+	float biggest_num;
+	float second_num;
+	float third_num;
+
+	biggest_num = studs[0].score;
 	for(int i = 0; i < count; i++) {
 
-		if(studs[i].score < studs[i+1].score) {
-			studs[0].score = studs[i+1].score;
-			strcpy(studs[0].name,studs[i+1].name);
+		if(biggest_num < studs[i].score) {
+			biggest_num = studs[i].score;
+			first.score = studs[i].score;
+			strcpy(first.name,studs[i].name);
+		}		
+	}
+
+	if (studs[0].score != biggest_num) {
+			second_num = studs[0].score;
+	} else {
+		second_num = 0;
+	}
+	for(int i = 0; i < count; i++) {
+		
+		if((second_num < studs[i].score && studs[i].score != biggest_num)) {
+			second_num = studs[i].score;
+			second.score = studs[i].score;
+			strcpy(second.name,studs[i].name);
 		}
 	}
+
+	if(studs[0].score != biggest_num && studs[0].score != second_num) {
+			third_num = studs[0].score;
+	} else {
+		third_num = 0;
+	}
+	for(int i = 0; i < count; i++) {
+		
+		if((third_num < studs[i].score && studs[i].score != biggest_num) && (third_num < studs[i].score && studs[i].score != second_num)) {
+			third_num = studs[i].score;
+			third.score = studs[i].score;
+			strcpy(third.name,studs[i].name);
+		}
+	}
+
 
 	// first.score = studs[0].score;
 	// strcpy(first.name,studs[0].name);
 	// studs[0].score = 0;
 
-	printf("%d",studs[0].score);
 	//Your code here
 	
 	//Please find the top three highest scoring students on the leaderboard
@@ -33,10 +67,10 @@ void printThreeLeaders(struct stud studs[], int count) { //why is count here? C 
 	//Although you might not need them
 
 	//Please do not modify the following code
-	// printf("Leader board:\n");
-	// printf("First place: %s, %.2f\n", first.name, first.score);
-	// printf("Second place: %s, %.2f\n", second.name, second.score);
-	// printf("Third place: %s, %.2f\n", third.name, third.score);
+	 printf("Leader board:\n");
+	 printf("First place: %s, %.2f\n", first.name, first.score);
+	 printf("Second place: %s, %.2f\n", second.name, second.score);
+	 printf("Third place: %s, %.2f\n", third.name, third.score);
 
 
 }
