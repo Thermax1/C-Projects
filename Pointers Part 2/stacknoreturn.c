@@ -7,21 +7,24 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+int array[0];
 int * makearray(int size,int base){
 
-  int array [size];
+  array[size];
   int j;
 
   for(j=0;j<size;j++)
     array[j] = base*=2; //doubling base
 
+  
   return array;
 }
 
 int main(){
-  int * a1 = makearray(5,2);
-  int * a2 = makearray(10,3);
   int j, sum=0;
+  int * a1 = malloc(sizeof(int *));
+  free(a1);
+  a1 = makearray(5,2);
 
   for(j=0;j<5;j++){
     printf("%d ",a1[j]);
@@ -29,6 +32,9 @@ int main(){
   }
   printf("\n");
 
+  int * a2 = malloc(sizeof(int *));
+  free(a2);
+  a2 = makearray(10,3);
   for(j=0;j<10;j++){
     printf("%d ",a2[j]);
     sum+=a2[j];
@@ -36,6 +42,4 @@ int main(){
   printf("\n");
 
   printf("SUM: %d\n", sum);
-  free(a1);
-  free(a2);
 }

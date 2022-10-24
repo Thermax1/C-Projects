@@ -39,6 +39,18 @@ int main(void) {
     
     /***Your code here***/
 
+    strcpy(s.name, "Freya");
+    s.age = 18;
+    s.year = 2016;
+    s.gpa = 4.0;
+
+    sptr = malloc(sizeof(struct student));
+
+    strcpy(sptr->name, "Lars");
+    sptr->age = 20;
+    sptr->year = 2015;
+    sptr->gpa = 3.2;
+
     //Please do not modify the code underneath
     printf("%s's info: %d years old, graduated in %d with %.2f gpa\n", s.name, s.age, s.year, s.gpa);
     printf("%s's info: %d years old, graduated in %d with %.2f gpa\n", sptr->name, sptr->age, sptr->year, sptr->gpa);

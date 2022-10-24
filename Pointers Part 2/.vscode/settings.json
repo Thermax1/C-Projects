@@ -1,0 +1,9 @@
+{
+    "cSpell.words": [
+        "makearray",
+        "sptr"
+    ],
+    "files.associations": {
+        "random": "c"
+    }
+}

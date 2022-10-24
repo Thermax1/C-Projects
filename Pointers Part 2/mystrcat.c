@@ -11,7 +11,25 @@
 //Please only modify mystrcat
 char* mystrcat(char * first, char * second){
 
-/***Your code here***/
+    char *temp1 = first;
+    char *temp2 = second;
+
+    char *total_end = malloc(strlen(first)+strlen(temp2)+1);
+    char *total = total_end;
+
+    for(int i = 0; i < strlen(first);i++) {
+        *total = *temp1;
+        temp1++;
+        total++;
+    }
+    for(int i = 0; i < strlen(second);i++) {
+        *total = *temp2;
+        temp2++;
+        total++;
+    }
+    return total_end;
+
+
 
 }
 
