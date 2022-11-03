@@ -9,13 +9,18 @@
 void rotate_4(int *p_a, int *p_b, int *p_c, int *p_d) {
     //TO-DO: please implement left-rotate 4 integers by one position
 
-    int temp;
-    temp = *p_a;
-    *p_a = __argc[p_d];
-    *p_d = __argc[&temp];
-    temp = *p_c;
-    *p_c = __argc[p_b];
-    *p_b = __argc[&temp];
+    int temp1;
+    int temp2;
+    int temp3;
+    int temp4;
+    temp1 = *p_a;
+    temp2 = *p_b;
+    temp3 = *p_c;
+    temp4 = *p_d;
+    *p_a = temp2;
+    *p_b = temp3;
+    *p_c = temp4;
+    *p_d = temp1;
 
 }
 
