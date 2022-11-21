@@ -1,3 +1,4 @@
 # Learning C
 
-- Uploading assignments from my OS class. Simple C basics and going on from there
+- Repository for small C Programs created in my OS Class
+- Will also be posting what I learned from reading "The C Programming Language" from the infamous (famous?) K&R
