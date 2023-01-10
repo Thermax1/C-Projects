@@ -157,9 +157,9 @@ char **lsh_split_line(char *line) {
 3. fork() returns 0 to child process, and it returns to the parent the PID of its child.
   - Essentially means that the only way for new processes to start is by existing one duplicating itself
   - Sounds like a problem. What if you want to run a new process? You don't want a copy of the same program. There is a solution.
-4. exec() system call replaces current running program with an entirely new one. OS stops procss, loads up new program, and starts that one in its place.
+4. exec() system call replaces current running program with an entirely new one. OS stops process, loads up new program, and starts that one in its place.
   - Processes never return from exec() call unless an error happens
-5. So we have to have an existing proves fork itself into two seperate ones. THEN the child uses exec() to replace itself with a new program.
+5. So we have to have an existing proves fork itself into two separate ones. THEN the child uses exec() to replace itself with a new program.
 6. Parents can do other things and even keep tabs on children using wait() system call.
 7. Finally, my OS class is starting to make sense
 *****************************************************************/
@@ -171,5 +171,20 @@ int lsh_launch(char **args) {
   pid = fork();
   if(pid == 0) {
     // this is the child process
+    if(execvp(args[0],args) == -1) { //execvp replaces current process with new process. C program replaced with actual command if successful. Returns -1 otherwise
+      perror("lsh");
+    }
+    exit(EXIT_FAILURE);
+  } else if(pid < 0) {
+    // This is Error forking
+    perror("lsh");
+  } else {
+    // Parent Process
+
+    do {
+      wpid = waitpid(pid, &status, WUNTRACED);
+      //waitpid() allows calling thread to obtain status info for one child process. WUNTRACED allows parent to return from wait or waitpid if child stops, exits, or gets killed
+    } while(!WIFEXITED(status)&&!WIFSIGNALED(status));
+    // WIFEXITED returns True if child terminates normally. WIFSIGNALED returns exit status of child. 
   }
 }
